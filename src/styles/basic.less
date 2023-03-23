@@ -1,11 +1,22 @@
 @import url('./variables.less');
 
+html {
+  background: @colorMain;
+}
+
 body {
   margin: 0px;
 }
 
-h1, h2, h3, h4, h5 {
+#contentWrapper {
+  height: 100vw;
+  display: flex;
+  flex-direction: column;
+}
 
+h1, h2, h3, h4, h5 {
+  font-family: @fontDefault;
+  color: @colorText;
 }
 
 h1 {
@@ -29,7 +40,8 @@ h5 {
 }
 
 p {
-
+  margin: 0px;
+  color: @colorText;
 }
 
 a {
@@ -37,5 +49,5 @@ a {
 }
 
 span {
-
+  color: @colorText;
 }

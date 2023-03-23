@@ -1,18 +1,26 @@
 // Importerar standard-CSS
-@import "default/style.less";
+@import "default/header.less";
+@import "default/main.less";
+@import "default/footer.less";
 @import "basic.less";
 
 // Importerar css desktop
 @media screen and (min-width: 1200px) {
-    @import "desktop/style.less";
+    @import "desktop/header.less";
+    @import "desktop/main.less";
+    @import "desktop/footer.less";
 }
 
 // Importerar css tablet
 @media screen and (max-width: 1200px) and (min-width: 768px) {
-    @import "tablet/style.less";
+    @import "tablet/header.less";
+    @import "tablet/main.less";
+    @import "tablet/footer.less";
 }
 
 // Importerar css mobil
 @media screen and (max-width: 768px) {
-    @import "mobil/style.less";
+    @import "mobile/header.less";
+    @import "mobile/main.less";
+    @import "mobile/footer.less";
 }
