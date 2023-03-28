@@ -12,22 +12,50 @@ async function render() {
 
   let list = await getData()
 
-  console.log(list)
-  console.log(list.description)
+  // console.log(list)
+  // console.log(list.description)
   for(let i = 0; i < list.length; i++) {
+
+    // var list = [
+    //   {name:"One",url:'http://google.com'},{name:"Two", url:""}
+
+    //   ];
+
+    //   for(var i = 0; i < list.length; ++i ) {
+
+
+    //       if(list[i].url !== "") {
+    //          var Webseite = '<a href="'+ list[i].url + '">Webseite</a>'
+    //       }else{
+    //          var Webseite = '';
+    //       }
+
+    //       $(".list").append('\
+    //      <tr>\
+    //      <td>'+ list[i].name + '</td>\
+    //      <td>' + list[i].area1 + ',<br> ' + list[i].area2 + ',<br> ' + list[i].area3 + '</td>\
+    //      <td>'+ list[i].small_area + '</td>\
+    //      <td>'+ list[i].studies + '</td>\
+    //      <td>'+ list[i].email + '</td>\
+    //      <td>' + Webseite + '</td>\
+    //      <td>'+ list[i].other + '</td>\
+    //      </tr>\
+    //      ');
+    //   }
+
     // console.log(list[i]);
     // $document.createElement('div').appendTo('.archiveList');
-    console.log('test')
-    // $('.archiveList').html('<p> Name: ' + list[i].description + '</p>');
-    // $('.archiveList').append('<p>Age : ' + list[i].title+ '</p>');
-    // $('.archiveList').append('<p> Sex: ' + list[i].link+ '</p>');
-
-
+    // console.log('test')
+    console.log(list[i].enclosure)
     var $archiveCard = $("<div/>", { class: "archiveCard" }),
-    $archiveImg = $("<img/>", { class: "archiveImg", text: 'img' }),
 
+    // if (list[i].enclosure === undefined) {
+    //   console.log('img not ok');
+    // }
+    // (list[i].enclosure) ? list[i].enclosure : '';
+
+    $archiveImg = $("<img/>", { class: "archiveImg", text: 'img', src: (list[i].enclosure ? list[i].enclosure : 'https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80')  }),
     $archiveInnerWrap = $("<div/>", { class: "archiveInnerWrap" }),
-
     $archiveDate = $("<span/>", { class: "archiveDate", text: list[i].updated });
     $archiveTitle = $("<h2/>", { class: "archiveTitle", text: list[i].title });
     $archiveDescription = $("<p/>", { class: "archiveDescription", text: list[i].description });
