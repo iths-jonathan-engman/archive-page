@@ -12,7 +12,7 @@ async function render() {
 
   let list = await getData()
 
-  // console.log(list)
+  console.log(list)
   // console.log(list.description)
   for(let i = 0; i < list.length; i++) {
 
@@ -58,9 +58,10 @@ async function render() {
     $archiveInnerWrap = $("<div/>", { class: "archiveInnerWrap" }),
     $archiveDate = $("<span/>", { class: "archiveDate", text: list[i].updated });
     $archiveTitle = $("<h2/>", { class: "archiveTitle", text: list[i].title });
+    $archiveTitleLink = $("<a/>", { class: "archiveTitleLink", href: list[i].link });
     $archiveDescription = $("<p/>", { class: "archiveDescription", text: list[i].description });
 
-    $archiveCard.append($archiveImg, $archiveInnerWrap.append($archiveDate, $archiveTitle, $archiveDescription)).appendTo(".archiveList");
+    $archiveCard.append($archiveImg, $archiveInnerWrap.append($archiveDate, $archiveTitleLink.append($archiveTitle), $archiveDescription)).appendTo(".archiveList");
   }
 }
 

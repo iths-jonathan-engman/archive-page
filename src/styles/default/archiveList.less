@@ -10,6 +10,13 @@
 
   .archiveCard:first-of-type {
     width: 100%;
+    display: flex;
+
+    img {
+      min-height: 100%;
+      margin: 0px 10px 0px 0px;
+      border-radius: 0px @borderRadius @borderRadius 0px;
+    }
   }
 
   .archiveCard {
@@ -48,11 +55,21 @@
       margin-bottom: 10px;
 
       .archiveDate {
-
+        font-size: 14px;
       }
 
-      .archiveTitle {
+      .archiveTitleLink {
+        color: @colorLink;
+        text-decoration: unset;
 
+        &:hover {
+          text-decoration: underline;
+        }
+
+        .archiveTitle {
+          color: @colorLink;
+          margin: 5px 0px 20px 0px;
+        }
       }
 
       .archiveDescription {
