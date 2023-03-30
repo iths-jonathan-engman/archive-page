@@ -1,9 +1,11 @@
-//Read more / less card description
-// $('.moreless-button').click(function() {
-//   $('.moretext').slideToggle();
-//   if ($('.moreless-button').text() == "Read more") {
-//     $(this).text("Read less")
-//   } else {
-//     $(this).text("Read more")
-//   }
-// });
+setTimeout(
+  function()
+  {
+    $(function(){
+      $(".archiveCard .archiveDescription").each(function(){
+      if ($(this).height() > 85) {
+        $(this).parents(".archiveCard").addClass('readMoreDesc')
+      }
+      });
+    });
+  }, 1000);

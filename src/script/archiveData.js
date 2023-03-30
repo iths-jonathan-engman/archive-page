@@ -2,9 +2,6 @@ async function getData() {
   let response = await fetch ('https://gist.githubusercontent.com/andreasnylin/161dae2fc8a807d1a858bb6eec965b0e/raw/56fb3e8f24cb6934bd22f2db8f9a8a9409e4d140/data.json')
 
   let responseData = await response.json()
-
-  // console.log(responseData)
-
   return responseData.items
 }
 
@@ -46,7 +43,7 @@ async function render() {
     // console.log(list[i]);
     // $document.createElement('div').appendTo('.archiveList');
     // console.log('test')
-    console.log(list[i].enclosure)
+    // console.log(list[i].enclosure)
     var $archiveCard = $("<div/>", { class: "archiveCard" }),
 
     // if (list[i].enclosure === undefined) {
@@ -63,6 +60,7 @@ async function render() {
 
     $archiveCard.append($archiveImg, $archiveInnerWrap.append($archiveDate, $archiveTitleLink.append($archiveTitle), $archiveDescription)).appendTo(".archiveList");
   }
+
 }
 
 render()

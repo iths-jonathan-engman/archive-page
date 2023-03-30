@@ -23,15 +23,33 @@
     flex-shrink: 0;
     width: 30%;
     flex-grow: 1;
-    padding: 10px;
     box-sizing: border-box;
     border-radius: @borderRadius;
-    // background: rgba(0,0,0,0.02);
     background: #fff;
+    // box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+    height: 330px;
+    overflow: hidden;
+
+    // &.readMoreDesc {
+    //   overflow: visible;
+    //   .archiveInnerWrap {
+    //     position: relative;
+
+    //     .archiveDescription {
+    //       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    //       position: absolute;
+    //       left: 0px;
+    //       background: #fff;
+    //       padding: 10px;
+    //       border-radius: 0px 0px @borderRadius @borderRadius;
+    //     }
+    //   }
+    // }
 
     img {
       width: 100%;
-      max-height: 100px;
+      max-height: 110px;
       object-fit: cover;
       object-position: center center;
       border-radius: @borderRadius @borderRadius 0px 0px;
@@ -51,8 +69,8 @@
     }
 
     .archiveInnerWrap {
-      overflow: hidden;
       margin-bottom: 10px;
+      padding: 10px;
 
       .archiveDate {
         font-size: 14px;
@@ -61,7 +79,7 @@
       .archiveTitleLink {
         color: @colorLink;
         text-decoration: unset;
-
+ 
         &:hover {
           text-decoration: underline;
         }
@@ -73,8 +91,8 @@
       }
 
       .archiveDescription {
-        max-height: 70px;
         box-sizing: border-box;
+        overflow: hidden;
       }
     }
   }
