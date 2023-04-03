@@ -1,0 +1,19 @@
+@import url('../variables.less');
+
+footer {
+  flex-direction: column;
+
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  #newsletter {
+    .newsletterInputWrap {
+      input {
+        &[type="email"] {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,18 +1,69 @@
 @import url('../variables.less');
 
 footer {
-  background: @colorAlt3;
+  background: @colorAlt1;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
 
   .logo {
     display: inline;
 
     a {
       display: inline-block;
-      background-image: url(/src/assets/images/logo.svg);
+      background-image: url(/src/assets/images/logo_metamatrix_white.svg);
       background-size: 207px 30px;
       width: 207px;
       height: 30px;
+    }
+  }
+
+  #newsletter {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: #fff;
+      max-width: 437px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .newsletterInputWrap {
+      display: flex;
+
+      input {
+        &[type="email"] {
+          box-sizing: border-box;
+          width: 350px;
+          height: 45px;
+          border: 0px;
+          padding-left: 20px;
+          border-radius: @borderRadius 0px 0px @borderRadius;
+          font-size: 18px;
+
+          &:focus {
+            outline-width: 0;
+          }
+        }
+
+        &[type="submit"] {
+          box-sizing: border-box;
+          height: 45px;
+          border: 0px;
+          padding: 0px 20px;
+          background: @colorAlt3;
+          border-radius: 0px @borderRadius @borderRadius 0px;
+          letter-spacing: 1px;
+          transition: 0.2s ease;
+          font-size: 18px;
+
+          &:hover {
+            cursor: pointer;
+            opacity: 0.85;
+          }
+        }
+      }
     }
   }
 }

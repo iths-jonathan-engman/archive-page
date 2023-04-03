@@ -16,7 +16,6 @@ function createArchiveCard(item) {
   const $archiveTitleLink = $("<a/>", { class: "archiveTitleLink", href: item.link });
   const $archiveDescription = $("<p/>", { class: "archiveDescription", text: item.description });
 
-
   $archiveCard.append($archiveImg, $archiveInnerWrap.append($archiveDate, $archiveTitleLink.append($archiveTitle), $archiveDescription));
 
   return $archiveCard;
@@ -95,7 +94,6 @@ async function render() {
     $(".archiveList").append($archiveCard);
   });
 }
-
 
 // Call the render function
 render();

@@ -8,15 +8,45 @@
     padding: 20px;
     box-sizing: border-box;
     display: flex;
+    align-items: center;
     gap: 20px;
     // box-shadow: inset 0px 0px 0px 1px #1a302d;
     box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
 
+    span {
+      font-size: 18px;
+    }
+
     .filterDropdown {
+
+      select {
+        height: 45px;
+        box-sizing: border-box;
+        padding: 0px 10px;
+        font-size: 18px;
+        border-radius: @borderRadius;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
 
     .filterBtn {
+      box-sizing: border-box;
+      height: 45px;
+      padding: 0px 20px;
+      border: 0px;
+      border-radius: @borderRadius;
+      background: @colorAlt3;
+      letter-spacing: 1px;
+      transition: 0.2s ease;
+      font-size: 18px;
 
+      &:hover {
+        cursor: pointer;
+        opacity: 0.85;
+      }
     }
   }
 
@@ -35,7 +65,7 @@
       img {
         min-height: 100%;
         margin: 0px 10px 0px 0px;
-        border-radius: 0px @borderRadius @borderRadius 0px;
+        border-radius: @borderRadius 0px 0px @borderRadius;
       }
     }
 
@@ -106,6 +136,7 @@
           .archiveTitle {
             color: @colorLink;
             margin: 5px 0px 20px 0px;
+            overflow: hidden;
           }
         }
 
