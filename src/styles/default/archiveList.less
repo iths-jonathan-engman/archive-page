@@ -77,24 +77,43 @@
       border-radius: @borderRadius;
       background: #fff;
       box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-      height: 330px;
-      overflow: hidden;
+      height: 370px;
 
-      // &.readMoreDesc {
-      //   overflow: visible;
-      //   .archiveInnerWrap {
-      //     position: relative;
+      &.readMoreDesc {
+        .archiveInnerWrap {
+          .archiveDescriptionWrap {
+            overflow: hidden;
 
-      //     .archiveDescription {
-      //       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-      //       position: absolute;
-      //       left: 0px;
-      //       background: #fff;
-      //       padding: 10px;
-      //       border-radius: 0px 0px @borderRadius @borderRadius;
-      //     }
-      //   }
-      // }
+            &.open {
+              position: absolute;
+              left: 0px;
+              overflow: visible;
+              background: #fff;
+              padding: 0px 10px 10px 10px;
+              box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+              z-index: 10;
+              border-radius: 0px 0px @borderRadius @borderRadius;
+
+              .archiveDescription {
+                overflow: visible;
+                height: unset;
+              }
+
+              .toggleDesc {
+                &:after {
+                  content: 'Visa mindre';
+                }
+              }
+            }
+
+            .archiveDescription {
+              overflow: hidden;
+              height: 85px;
+            }
+          }
+
+        }
+      }
 
       img {
         width: 100%;
@@ -120,6 +139,7 @@
       .archiveInnerWrap {
         margin-bottom: 10px;
         padding: 10px;
+        position: relative;
 
         .archiveDate {
           font-size: 14px;
@@ -128,6 +148,7 @@
         .archiveTitleLink {
           color: @colorLink;
           text-decoration: unset;
+          display: block;
 
           &:hover {
             text-decoration: underline;
@@ -136,13 +157,35 @@
           .archiveTitle {
             color: @colorLink;
             margin: 5px 0px 20px 0px;
+            height: 56px;
+            display: -webkit-box;
             overflow: hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
           }
         }
 
-        .archiveDescription {
-          box-sizing: border-box;
+        .archiveDescriptionWrap {
           overflow: hidden;
+          .archiveDescription {
+            box-sizing: border-box;
+            overflow: hidden;
+            // max-height: 84px;
+          }
+
+          .toggleDesc {
+            line-height: 40px;
+            text-decoration: underline;
+            color: @colorLink;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &:after {
+              content: 'Visa mer';
+            }
+          }
         }
       }
     }
