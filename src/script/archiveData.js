@@ -9,7 +9,7 @@ function createArchiveCard(item) {
 
   const $archiveImg = $("<img/>", { class: "archiveImg", text: 'img', src: (item.enclosure ? item.enclosure : 'https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80') });
   const $archiveInnerWrap = $("<div/>", { class: "archiveInnerWrap" });
-  const $archiveDate = $("<span/>", { class: "archiveDate", text: item.pubDate });
+  const $archiveDate = $("<span/>", { class: "archiveDate", text: item.pubDate.slice(0, -14) });
   const $archiveTitle = $("<h2/>", { class: "archiveTitle", text: item.title });
   const $archiveTitleLink = $("<a/>", { class: "archiveTitleLink", href: item.link });
   const $archiveDescriptionWrap = $("<div/>", { class: "archiveDescriptionWrap" });
@@ -33,6 +33,7 @@ async function render() {
   };
 
   function filterAndRender(selectedYear, list) {
+
     if (!selectedYear) {
       $(".archiveList").empty();
       list.forEach(item => {
@@ -79,15 +80,15 @@ async function render() {
   });
 
   // $(window).on('load', function() {
-    
+
   // })
   $('.archiveList').data('list', list);
 
   list.forEach(item => {
     const $archiveCard = createArchiveCard(item);
     $(".archiveList").append($archiveCard);
-  });
 
+  });
 
 }
 render();

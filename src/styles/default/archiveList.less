@@ -97,6 +97,10 @@
               .archiveDescription {
                 overflow: visible;
                 height: unset;
+
+                &:after {
+                  display: none;
+                }
               }
 
               .toggleDesc {
@@ -109,6 +113,17 @@
             .archiveDescription {
               overflow: hidden;
               height: 85px;
+              position: relative;
+
+              &:after {
+                content:'';
+                width:100%;
+                height:100%;
+                position:absolute;
+                left:0;
+                top:0;
+                background:linear-gradient(transparent 60px, white);
+              }
             }
           }
 
