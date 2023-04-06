@@ -2,6 +2,23 @@
 
 .archiveWrapper {
   .archiveList {
+    grid-gap: 10px;
+
+    .archiveCard:first-of-type {
+      flex-direction: column;
+      height: 400px;
+
+      img {
+        width: 100%;
+        min-height: unset;
+        height: auto;
+      }
+
+      .archiveInnerWrap {
+        // display: flex;
+        // flex-direction: column;
+      }
+    }
 
     .archiveCard {
       height: 360px;

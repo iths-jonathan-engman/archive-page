@@ -89,6 +89,7 @@ async function render() {
     $(".archiveList").append($archiveCard);
 
   });
-
+  checkDescHeight()
 }
+
 render();
