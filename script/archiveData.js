@@ -5,7 +5,7 @@ async function getData() {
 }
 
 function createArchiveCard(item) {
-  const $archiveCard = $("<div/>", { class: "archiveCard" });
+  const $archiveCard = $("<div/>", { class: "archiveCard skeleton" });
 
   const $archiveImg = $("<img/>", { class: "archiveImg", text: 'img', src: (item.enclosure ? item.enclosure : 'https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80') });
   const $archiveInnerWrap = $("<div/>", { class: "archiveInnerWrap" });
@@ -25,21 +25,31 @@ async function render() {
 
   function checkDescHeight() {
     $(".archiveCard .archiveDescription").each((i, descHeight) => {
-      if ($(descHeight).height() > 85) {
-        $(descHeight).parents(".archiveCard").addClass('readMoreDesc');
+      if ($(descHeight).height() > 90) {
+        $(descHeight).parents(".archiveCard").addClass("readMoreDesc");
         $(descHeight).parents(".archiveDescriptionWrap").append('<span class="toggleDesc"></span>');
       }
    });
   };
 
-  function filterAndRender(selectedYear, list) {
+  function removeSkeletonLoading() {
+    setTimeout(() => {
+      const allSkeleton = document.querySelectorAll(".archiveCard.skeleton"); // Select only the archive cards with the "skeleton" class
+      allSkeleton.forEach(item => {
+        item.classList.remove("skeleton");
+      });
+    }, 800);
+  }
 
+  function filterAndRender(selectedYear, list) {
     if (!selectedYear) {
       $(".archiveList").empty();
       list.forEach(item => {
         const $archiveCard = createArchiveCard(item);
         $(".archiveList").append($archiveCard);
       });
+      checkDescHeight();
+      removeSkeletonLoading()
       return;
     }
 
@@ -60,6 +70,9 @@ async function render() {
       const $archiveCard = createArchiveCard(item);
       $(".archiveList").append($archiveCard);
     });
+
+    checkDescHeight();
+    removeSkeletonLoading()
   }
 
   const uniqueYears = [...new Set(list.map(item => new Date(item.pubDate).getFullYear()))];
@@ -72,16 +85,12 @@ async function render() {
   $('.filterBtn').on('click', function () {
     const selectedYear = parseInt($('.filterDropdown select').val());
     filterAndRender(selectedYear, list);
-    checkDescHeight()
   });
 
   $(document).on( 'click', '.toggleDesc', function () {
     $(this).parents(".archiveDescriptionWrap").toggleClass("open");
   });
 
-  // $(window).on('load', function() {
-
-  // })
   $('.archiveList').data('list', list);
 
   list.forEach(item => {
@@ -89,7 +98,12 @@ async function render() {
     $(".archiveList").append($archiveCard);
 
   });
-  checkDescHeight()
+
+  setTimeout(() => {
+    checkDescHeight();
+  }, 50);
+
+  removeSkeletonLoading()
 }
 
 render();
