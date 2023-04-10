@@ -101,7 +101,7 @@ async function render() {
 
   setTimeout(() => {
     checkDescHeight();
-  }, 50);
+  }, 800);
 
   removeSkeletonLoading()
 }
