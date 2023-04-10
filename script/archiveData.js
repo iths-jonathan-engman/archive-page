@@ -34,7 +34,7 @@ async function render() {
 
   function removeSkeletonLoading() {
     setTimeout(() => {
-      const allSkeleton = document.querySelectorAll(".archiveCard.skeleton"); // Select only the archive cards with the "skeleton" class
+      const allSkeleton = document.querySelectorAll(".archiveCard.skeleton");
       allSkeleton.forEach(item => {
         item.classList.remove("skeleton");
       });
@@ -77,21 +77,21 @@ async function render() {
 
   const uniqueYears = [...new Set(list.map(item => new Date(item.pubDate).getFullYear()))];
 
-  const $filterDropdown = $('.filterDropdown select');
+  const $filterDropdown = $(".filterDropdown select");
   uniqueYears.forEach(year => {
-    $filterDropdown.append($('<option>', { value: year, text: year }));
+    $filterDropdown.append($("<option>", { value: year, text: year }));
   });
 
-  $('.filterBtn').on('click', function () {
-    const selectedYear = parseInt($('.filterDropdown select').val());
+  $(".filterBtn").on("click", function () {
+    const selectedYear = parseInt($(".filterDropdown select").val());
     filterAndRender(selectedYear, list);
   });
 
-  $(document).on( 'click', '.toggleDesc', function () {
+  $(document).on("click", ".toggleDesc", function () {
     $(this).parents(".archiveDescriptionWrap").toggleClass("open");
   });
 
-  $('.archiveList').data('list', list);
+  $(".archiveList").data("list", list);
 
   list.forEach(item => {
     const $archiveCard = createArchiveCard(item);
@@ -103,7 +103,11 @@ async function render() {
     checkDescHeight();
   }, 800);
 
-  removeSkeletonLoading()
+  $(window).resize(function(){
+    checkDescHeight();
+  });
+
+  removeSkeletonLoading();
 }
 
 render();
