@@ -103,10 +103,6 @@ async function render() {
     checkDescHeight();
   }, 800);
 
-  $(window).resize(function(){
-    checkDescHeight();
-  });
-
   removeSkeletonLoading();
 }
 
